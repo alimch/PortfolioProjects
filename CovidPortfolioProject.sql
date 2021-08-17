@@ -32,6 +32,7 @@ ORDER BY PercentPopulationInfected DESC
 SELECT location, population, MAX(CAST(total_deaths AS int)) AS TotalDeathCount
 FROM dbo.CovidDeaths
 WHERE continent IS NOT NULL
+AND location not in ('World', 'European Union', 'International')
 GROUP BY location, population
 ORDER BY TotalDeathCount DESC
 
